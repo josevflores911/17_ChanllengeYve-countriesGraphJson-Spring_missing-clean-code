@@ -76,51 +76,31 @@ public class SearchMethods {
                 +Math.pow((departureLongitud-arrivalLongitud),2) );
         pathDistances.add(savedDistance);
         pathCountries.add(departure);
-
-
-
-
         while (savedDistance != 0) {
             for (Country country : countryRepository.findAll()) {
                 if(country.getCca3().equals(departure)){
-                    System.out.println(country.getCca3());
                     for(int i= 0;i < Arrays.asList(country.getBorders()).size(); i++){
-                        System.out.println(Arrays.asList(country.getBorders()).get(i)+"linea 88");
                         for(Country borderCountries : countryRepository.findAll()){
-
-
                             if(borderCountries.getCca3().equals(Arrays.asList(country.getBorders()).get(i))){
                                 departureLatitud= Double.valueOf(Arrays.asList(borderCountries.getLatlng()).get(0));
                                 departureLongitud= Double.valueOf(Arrays.asList(borderCountries.getLatlng()).get(1));
-
                                 distance= Math.sqrt( Math.pow((departureLatitud-arrivalLatitud),2)
                                         +Math.pow((departureLongitud-arrivalLongitud),2) );
-                                System.out.println(distance+"distance");
                                 if(distance<=savedDistance ){
                                     savedDistance=distance;
                                     departure=borderCountries.getCca3();
-                                    System.out.println("condicion sustitucion");
-                                    System.out.println(savedDistance);
-
                                 }
                             }
-
-
-
                         }
-
-
                     }
                     pathCountries.add(departure);
                     pathDistances.add(savedDistance);
-                    System.out.println(pathCountries+"final del loop");
                 }
             }
         }
 
-        pathCountries.remove(pathCountries.size()-1);
-        pathDistances.remove(pathDistances.size()-1);
-
+        //pathCountries.remove(pathCountries.size()-1);
+        //pathDistances.remove(pathDistances.size()-1);
 
         return pathCountries;
     }

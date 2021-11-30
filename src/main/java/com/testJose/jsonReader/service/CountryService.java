@@ -46,14 +46,8 @@ public class CountryService {
         SearchMethods searching = new SearchMethods(countryRepository);
 
         if(searching.countryNotFounded(departure, arrival)){
-            searching.pathCountry(departure, arrival);
-        }else{
-            System.out.println("chao");
+            closestCountries = searching.pathCountry(departure, arrival);
         }
-
-
-
-
         return closestCountries;
     }
 }

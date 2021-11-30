@@ -41,7 +41,7 @@ public class CountriesController {
         List<String> travelsOptions = countryService.getCountryByBorders(departure,arrival);
 
         List<String> msg = new ArrayList<String>();
-        msg.add("not founded");
+        msg.add("not founded path");
 
 
         if(travelsOptions.size()==0){
