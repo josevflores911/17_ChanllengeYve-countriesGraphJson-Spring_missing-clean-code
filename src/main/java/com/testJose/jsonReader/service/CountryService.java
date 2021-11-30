@@ -1,7 +1,6 @@
 package com.testJose.jsonReader.service;
 
 import com.testJose.jsonReader.domain.Country;
-import com.testJose.jsonReader.domain.Name;
 import com.testJose.jsonReader.repository.CountryRepository;
 import org.springframework.stereotype.Service;
 
@@ -42,41 +41,19 @@ public class CountryService {
     }
 
     public List<String> getCountryByBorders(String departure,String arrival){
-       List<String> departureCountry= new ArrayList<String>();
-       List<String> arrivalCountry= new ArrayList<String>();
-       List<String> closestCountries= new ArrayList<String>();
+        List<String> closestCountries=new ArrayList<>();
 
+        SearchMethods searching = new SearchMethods(countryRepository);
 
-
-       for(Country country : countryRepository.findAll()) {
-            if (country.getCca3().equals(departure)) {
-                departureCountry=Arrays.asList(country.getBorders());
-                //System.out.println(selectedCountry);
-            }
-           if (country.getCca3().equals(arrival)) {
-               arrivalCountry=Arrays.asList(country.getBorders());
-               //System.out.println(selectedCountry);
-           }
-        }
-        if (departureCountry.size()>0 && arrivalCountry.size()>0) {
-            for (Country country : countryRepository.findAll()) {
-                for (int i = 0; i < Arrays.asList(country.getBorders()).size(); i++) {
-
-                    //System.out.println(  (Arrays.asList(country.getBorders()).get(i)).equals(departure)  );
-
-                    if(( (Arrays.asList(country.getBorders()).get(i)).equals(departure)  ) || (  (Arrays.asList(country.getBorders()).get(i)).equals(arrival) ) ){
-                        //closestCountries.add(Arrays.toString(country.getBorders()));
-                        closestCountries.add(country.getName().getCommon());
-                        //closestCountries.add(country.getCca3());
-
-                    }
-                    //System.out.println(selectedCountry.get(i));
-                }
-            }
-            return closestCountries;
+        if(searching.countryNotFounded(departure, arrival)){
+            searching.pathCountry(departure, arrival);
         }else{
-             //404
-            return closestCountries;
+            System.out.println("chao");
         }
+
+
+
+
+        return closestCountries;
     }
 }
