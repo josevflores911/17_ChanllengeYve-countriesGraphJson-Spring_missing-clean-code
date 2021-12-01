@@ -2,12 +2,15 @@ package com.testJose.jsonReader.service;
 
 import com.testJose.jsonReader.domain.Country;
 import com.testJose.jsonReader.repository.CountryRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Service
 public class SearchMethods {
+
     private CountryRepository countryRepository;
 
     public SearchMethods(CountryRepository countryRepository) {

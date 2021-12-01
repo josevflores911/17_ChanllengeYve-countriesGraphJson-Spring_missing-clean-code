@@ -2,6 +2,7 @@ package com.testJose.jsonReader.service;
 
 import com.testJose.jsonReader.domain.Country;
 import com.testJose.jsonReader.repository.CountryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,6 +12,8 @@ import java.util.List;
 @Service
 public class CountryService {
 
+   @Autowired
+    private  SearchMethods searchMethods;
 
     private CountryRepository countryRepository;
 
@@ -43,10 +46,10 @@ public class CountryService {
     public List<String> getCountryByBorders(String departure,String arrival){
         List<String> closestCountries=new ArrayList<>();
 
-        SearchMethods searching = new SearchMethods(countryRepository);
+        //SearchMethods searching = new SearchMethods(countryRepository);
 
-        if(searching.countryNotFounded(departure, arrival)){
-            closestCountries = searching.pathCountry(departure, arrival);
+        if(searchMethods.countryNotFounded(departure, arrival)){
+            closestCountries = searchMethods.pathCountry(departure, arrival);
         }
         return closestCountries;
     }
