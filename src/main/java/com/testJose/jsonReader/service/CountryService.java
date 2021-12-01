@@ -13,7 +13,7 @@ import java.util.List;
 public class CountryService {
 
    @Autowired
-    private  SearchMethods searchMethods;
+    private SearchService searchMethods;
 
     private CountryRepository countryRepository;
 
@@ -22,8 +22,6 @@ public class CountryService {
     }
 
     public  Iterable<Country> list(){
-
-
         return countryRepository.findAll();
     }
 
@@ -45,8 +43,6 @@ public class CountryService {
 
     public List<String> getCountryByBorders(String departure,String arrival){
         List<String> closestCountries=new ArrayList<>();
-
-        //SearchMethods searching = new SearchMethods(countryRepository);
 
         if(searchMethods.countryNotFounded(departure, arrival)){
             closestCountries = searchMethods.pathCountry(departure, arrival);

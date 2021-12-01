@@ -28,7 +28,7 @@ public class CountriesController {
         return countryService.list();
     }
 
-    @GetMapping("/lista")
+    @GetMapping("/borderList")
     public List<String> findAll(){
         return countryService.findAll();
     }

@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class SearchMethods {
+public class SearchService {
 
     private CountryRepository countryRepository;
 
-    public SearchMethods(CountryRepository countryRepository) {
+    public SearchService(CountryRepository countryRepository) {
         this.countryRepository = countryRepository;
     }
 
@@ -100,11 +100,13 @@ public class SearchMethods {
                     pathDistances.add(savedDistance);
                 }
             }
+
         }
 
-        //pathCountries.remove(pathCountries.size()-1);
-        //pathDistances.remove(pathDistances.size()-1);
-
+        if(pathCountries.size()>2){
+            pathCountries.remove(pathCountries.size()-1);
+            pathDistances.remove(pathDistances.size()-1);
+        }
         return pathCountries;
     }
 }
