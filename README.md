@@ -90,4 +90,19 @@ SearchService have 2 methods
 the first  to see if there is a path between those countries
 the second look that path by using the algorithm with the latitude and longitude 
 
+## Instructions
+
+api is running on por 8090 
+	
+	ENDPOINTS
+
+localhost:8090/list  -> return a list with all the information inside the json file that was recorded for the api naturally ordered
+
+localhost:8090/borderList  -> return a list of borders of all the countries inside the json, naturally ordered
+
+localhost:8090/routing/{origin}/{destination} -> return a list that content all the countries(cca3 identified), required origin (cca3 identified) and destination(cca3 identified) in that ordered the result is the shortest way possible
+
+
+
+
 
