@@ -7,6 +7,9 @@ import lombok.Data;
 import javax.persistence.Embeddable;
 import java.util.List;
 
+/**
+ * subclass of country
+ */
 @Data
 @AllArgsConstructor
 @Embeddable

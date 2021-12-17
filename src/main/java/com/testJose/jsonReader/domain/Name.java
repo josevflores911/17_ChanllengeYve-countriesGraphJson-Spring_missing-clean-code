@@ -8,6 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 
+/**
+ * subclass of country
+ */
 @Data
 @AllArgsConstructor
 @Embeddable

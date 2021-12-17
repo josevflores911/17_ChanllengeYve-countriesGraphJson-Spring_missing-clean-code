@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ *
+ * interface that links our repository with jpa methods
+ */
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Long> {
     //List<Country> getCountryByBorders(String borders);

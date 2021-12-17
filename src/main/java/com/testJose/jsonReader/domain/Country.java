@@ -7,6 +7,25 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Class that generates the model that will be sent in the data table
+ *
+ *   application of Lombok annotations for the construction of getters and setters and
+ *   constructors with all arguments and no arguments as well as
+ *  builder for instantiating new objects
+ *
+ *  this class takes the elements from the json file and transforms them
+ *  into objects, for efficiency, not all json elements were included
+ *  with the jsonIgnoreProperties annotation
+ *
+ *  the main class has subclasses that are located at the end of
+ *  the code lines of this class which in turn have variables and subclasses *
+ *
+ *
+ * @author Jose Viera
+ * @version 1.1
+ *
+ */
 @Data
 @AllArgsConstructor
 @Entity

@@ -22,6 +22,13 @@ public class JsonReaderApplication {
 		SpringApplication.run(JsonReaderApplication.class, args);
 	}
 
+	/**
+	 *
+	 * spring bean that maps and loads the data found in resources json
+	 *
+	 * @param countryService
+	 * @return args
+	 */
 	@Bean
 	CommandLineRunner runner(CountryService countryService){
 		return args -> {
